@@ -13,6 +13,8 @@ Description: An automated anatomical parcellation of the
     provided by the Montreal Neurological Institute ('MNI') and an
     alternative parcellation of the orbitofrontal cortex.
 License: GPL-3
+Imports:
+    neurobase
 Suggests: 
     covr,
     knitr,
@@ -23,3 +25,4 @@ LazyData: true
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/aal
 BugReports: https://github.com/muschellij2/aal/issues
+RoxygenNote: 6.1.0

@@ -1,0 +1,19 @@
+language: R
+sudo: false
+cache: packages
+after_success: if [ "$TRAVIS_OS_NAME" == "linux" ]; then Rscript -e 'covr::codecov(type
+  = "all")'; fi
+warnings_are_errors: true
+before_deploy: if [ "$TRAVIS_OS_NAME" == "osx" ]; then rm -f *.tar.gz; fi
+r_check_args: "--as-cran --install-args=--build"
+
+deploy:
+  provider: releases
+  skip_cleanup: yes
+  file_glob: yes
+  api_key:
+    secure: G+LsGucrEDjhDbXYbecrf7c4zB1vzsQTjNoYOzc/wcL8URGoOlb37DczVtX0lnwN/SN049fgGfO00Xz8vu9YcysLB7KFmQM8D7/aSMf0bn9fcODQhb/z8EGBzLTYkftcthiNuCPqs2Z8cp27cxV5q4vDuA0HzqArppGlWUSvP+TtiMtBYKC4H0hd4QLYIEHM8/siVpiH8XUqC9kaqThLXdmmv6otFuWfnnD6H5LVvLpAJuQtPTDYmZBhB9zW+BkdrJ+sgLgRRIQS1eIchG42pmwXmZQhojadvDO2WvhWBNbPkrRj2ReGV+FU9HnY09egU0obB+2ykeR4n+rzI0umOv3iwzZCJFNSRoIO+E3wy18GCgaj6d7bTEfEnrfIpen+kGYU2wU5eZk7WTIiceSb85wsOljoCIdVqxuzCayBGdKT59XzW5M/fwF6LQDZDNdckN4y/BbCTuAKypGtcySBKHoPIR707c7knVUIRdKVM+Nxf1GGjLjaDQL/ZYjJ87ctDF3BM/Nu+ZgEL1sUYNh7jWMtDtClxX9v/T2niWRK+tzHMe/JPZsw1ggiI7+tATLorzQgl4WCFQchkNvqVrThlAaRTMkTBaFAfoSgZ8PIFhOvojQb1ocqnIvNnajJeAZnII0HP27HQ1wGHzeR1rgSP/8VHm7SK4IRTwCFrGijVA4=  
+  file: aal*.t*gz
+  'on':
+    tags: yes
+    repo: muschellij2/aal
