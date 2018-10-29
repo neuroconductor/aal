@@ -3,18 +3,25 @@
 \docType{data}
 \name{aal_border}
 \alias{aal_border}
-\title{AAL List of Border Vertices}
+\alias{aal_get_border}
+\title{AAL List of Border Edges}
 \format{A list with 2 elements, which are either `v4` or `v5`,
 each having a `list` of elements, :
 \describe{
 \item{BORDER.V}{a numeric vector of values corresponding to those
 in the image}
-\item{BORDER.XYZ}{a V by 3 matrix of vertices}
+\item{BORDER.XYZ}{a V by 3 matrix that contains the regions edges in mm,
+which can be used as indices if the image read in is the same dimensions.}
 }}
 \usage{
 aal_border
+
+aal_get_border(version = c("5", "4"))
+}
+\arguments{
+\item{version}{Version of AAL ROI image, versions 4 and 5.}
 }
 \description{
-AAL List of Border Vertices
+AAL List of Border Edges
 }
 \keyword{datasets}

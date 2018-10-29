@@ -11,3 +11,14 @@
 #' has been changed to Cingulate to harmonize with version 5.  Similarly,
 #' `Frontal_Sup_2` has been set to `Frontal_Sup` in version 5
 "aal_labels"
+
+
+#' @rdname aal_labels
+#' @export
+#' @param version Version of AAL ROI image, versions 4 and 5.
+aal_get_labels =  function(version = c("5", "4")) {
+  version = as.character(version)
+  version = match.arg(version)
+  fname = paste0("v", version)
+  aal::aal_labels[[fname]]
+}

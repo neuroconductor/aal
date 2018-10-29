@@ -141,6 +141,13 @@ v5 = a_data %>%
 v5_img = rimg
 
 
+v5_labels = readr::read_delim(
+  file = "data-raw/aal2.nii.txt",
+  delim = " ", col_names = FALSE)
+colnames(v5_labels) = c("order", "name", "index")
+ord = order(v5_labels$index)
+stopifnot(all(ord == 1:nrow(v5_labels)))
+
 aal_labels = list(v4 = v4,
                   v5 = v5)
 usethis::use_data(aal_labels, compress = "xz",

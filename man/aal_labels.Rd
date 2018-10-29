@@ -3,6 +3,7 @@
 \docType{data}
 \name{aal_labels}
 \alias{aal_labels}
+\alias{aal_get_labels}
 \title{AAL Label Names}
 \format{A list with 2 elements, which are either `v4` or `v5`,
 each having a `data.frame` of:
@@ -12,8 +13,19 @@ each having a `data.frame` of:
 }}
 \usage{
 aal_labels
+
+aal_get_labels(version = c("5", "4"))
+}
+\arguments{
+\item{version}{Version of AAL ROI image, versions 4 and 5.}
 }
 \description{
 AAL Label Names
+}
+\note{
+Cerebellum is misspelled in the original data, but correctly
+spelled in the data in this package.  Also, Cingulum in version 4
+has been changed to Cingulate to harmonize with version 5.  Similarly,
+`Frontal_Sup_2` has been set to `Frontal_Sup` in version 5
 }
 \keyword{datasets}
