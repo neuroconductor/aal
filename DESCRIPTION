@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "muschellij2@gmail.com",
            comment = c(ORCID = "0000-0001-6469-1750"))
-Description: An automated anatomical parcellation of the
+Description: Provides an automated anatomical parcellation of the
     spatially normalized single-subject high-resolution 'T1' volume
     provided by the Montreal Neurological Institute ('MNI') and an
     alternative parcellation of the orbitofrontal cortex.
