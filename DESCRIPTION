@@ -1,25 +1,32 @@
 Type: Package
 Package: aal
 Title: Automated Anatomical Labeling ('AAL') Atlas
-Version: 0.1.0
-Authors@R: person(given = "John", family = "Muschelli", role = c("aut",
-        "cre"), email = "muschellij2@gmail.com", comment = c(ORCID =
-        "0000-0001-6469-1750"))
-Description: An automated anatomical parcellation of the spatially
-        normalized single-subject high-resolution 'T1' volume provided
-        by the Montreal Neurological Institute ('MNI') and an
-        alternative parcellation of the orbitofrontal cortex.
+Version: 0.1.1
+Authors@R: 
+    person(given = "John",
+           family = "Muschelli",
+           role = c("aut", "cre"),
+           email = "muschellij2@gmail.com",
+           comment = c(ORCID = "0000-0001-6469-1750"))
+Description: Provides an automated anatomical parcellation of the
+    spatially normalized single-subject high-resolution 'T1' volume
+    provided by the Montreal Neurological Institute ('MNI') and an
+    alternative parcellation of the orbitofrontal cortex.
 License: GPL-3
 Depends: R (>= 2.10)
-Imports: neurobase
-Suggests: covr, knitr, rmarkdown, MNITemplate, testthat
+Imports:
+    neurobase
+Suggests: 
+    covr,
+    knitr,
+    rmarkdown,
+    MNITemplate,
+    testthat
 Encoding: UTF-8
+Remotes: 
+    Jfortin1/MNITemplate
 LazyData: true
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/aal
 BugReports: https://github.com/muschellij2/aal/issues
 RoxygenNote: 6.1.0
-biocViews:
-Remotes: 
-    neuroconductor/MNITemplate@b8b64c0a6384c35752afa85c1fb04f1a50e822ff,
-    neuroconductor/neurobase@78af0703255f3c77da3be3dc4453cb2830ddff87
