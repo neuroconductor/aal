@@ -1,3 +1,6 @@
+^\./appveyor\.yml\.bak$
+^\./\.travis\.yml\.bak$
+^DESCRIPTION\.bak$
 ^cran-comments\.md$
 ^data-raw$
 ^codecov\.yml$
