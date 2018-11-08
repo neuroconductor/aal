@@ -19,8 +19,8 @@ VignetteBuilder: knitr
 URL: https://github.com/muschellij2/aal
 BugReports: https://github.com/muschellij2/aal/issues
 RoxygenNote: 6.1.0
+biocViews:
 Repository: Neuroconductor
-Remotes:  
-    neuroconductor/MNITemplate@04cfa5fee8959f0a2c3e65f2d31adacfe287f9d0,
-    neuroconductor/neurobase@701aee3580fca2dd878715fd3b2df46dfe1ca5ab
-biocViews: 
+Remotes: 
+    neuroconductor/MNITemplate@b8b64c0a6384c35752afa85c1fb04f1a50e822ff,
+    neuroconductor/neurobase@78af0703255f3c77da3be3dc4453cb2830ddff87
