@@ -23,4 +23,4 @@ biocViews:
 Repository: Neuroconductor
 Remotes: 
     neuroconductor/MNITemplate@6e6e73601f81b2e6be3a7851d5d12f7f12f33c81,
-    neuroconductor/neurobase@8c8370e5c4c00f0ace1232e0590be95463852951
+    neuroconductor/neurobase@64199598bf4616ee944a7ee90474c5fa66270e36
