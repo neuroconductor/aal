@@ -86,8 +86,10 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: QeCtTi9zeyPa3J63CR6eNEOq/+SdRA9xYwei0Jgmy5j9PxPMf/Nop+LU8vkGQK2DOd+xL0Yxh0RSWdMTTvcggGUBsiWLPfQyQlAdFEpZs/j28utW6YKYBFJVO6kKknXcDG2L7PmIbhEhe7f//GudkIPDlM45pBLh/YOWC9WRpdyLZDpHX/1mqa0lhG/7Ioz75DgC2sxAddxAxYJS+kXI0U+l305epQDTIYI6okvxmu7IbG0FrqwB+zRt4BmhK1LBkNQk3RI8RpkusWK9VeWDLgicy/0CeTMI7N0hQNbZAeZQa8HEqN4KQWYMNufWzq8igr2dZuaUjHfdmN+AYvKvK2A/c7tMRXP9/sGHWnIulL1Hm9ZnGE4Z274D4I+kHH3NCcqSw3Cy4v3L/c+R4zkKz5BmEmUuIO4dCxKRlrpcszvvbsVEhZOOI4tIw5u4L9PRfmJf8stjOiH2bnMjYsRR7W2EaoVP1Sy/g9cPe0Yn8c5V0QMFTho9KZiHNXuGQlNSpsizMrbXG50Qa4FHmJGGnkN+bOYsSnks/ClQbAbJ4jkCJbyRDMKtnf/Pm/+22xjACRYlaTiCH1xiV4SNE/DfgwwEIKjhfpp0kPVzHu5NdkRBACgFEQlsOnnQJbFtuJpdMLBPSOGT48l+PuZcWX0U4Cz6MBVHwr1rWKCwzrn0zqY=
+    secure: MJh2rgTvUcbtr06w/5y7Tvrd3wnjEEZuUToS9v3WiG7UoTIuoY3tOUkhi8RSRYM5EMhDf/QolGmcs0IOiuvgameKxdBbER9eaHBMp9aaC0/H2yEHx0M7qJg9fbypfXOMQp1Fuo9zNpGTtYE02HuiAn87OtlfPPI5FtUn1LVgrShRTnipyWb4n54x06G2QGxwgypdBPitNyGvTpzkS6Rl8gBiqRs6RfDpUh+lvNE80rjujm2DCueuzxj5GGUdNlZFHPf8G44cMYT2AyRfgOxJjdx6BQm2TbXX0N+S9N+bmbsHQOZkYTERSmKMM8U7R75JzQyjVSwphwabB/eN+7u49NrQzJL3or3bwXnoongsF567rzQnhjf/gpUIAPcqHVh7M7b3Ls26P88ZQOvA9LAeATGbPjEfzihypxsakbsFA2rSe2pIOPo04CsWfr36npW55k8NvaMQXWOXgc05ySPMVsNS9dYOCW+CrTiugR02ZgfeAajs2eRCgAmqxKeSp1JdA66YRtPInhyaR3Zw2PlJsyw1N1WrX7MKhPECcQRf73FepKAz6qVlDeeIWJZAu2q4q7xvLIHHg4nQsX6UOcsaaA9bO9P0tbOOZO/2mT6RbrbJ5gK8bWPYcmRWChBpI/yEhanSCL5+/SitGKhR8XBoRkc7MoDmRIdlw7UPhIm6CwQ=
 after_deploy:
-- if [[ "${TRAVIS_OS_NAME}" == "linux" && ${TRAVIS_R_VERSION_STRING} = "release" ]];
-  then echo 'covr::coveralls(type = "all", quiet = FALSE)' > neuroc_covr.R ; travis_wait
-  100 Rscript neuroc_covr.R ; rm neuroc_covr.R ; fi
+- echo "${PROJECT_NAME}" | grep -q "releases"; if [[ $? -eq 0 ]]; then run_coverage="false";
+  else run_coverage=; fi;
+- if [[ "${TRAVIS_OS_NAME}" == "linux" && ${TRAVIS_R_VERSION_STRING} = "release" &&
+  -z "${run_coverage}" ]]; then echo 'covr::coveralls(type = "all", quiet = FALSE)'
+  > neuroc_covr.R ; travis_wait 100 Rscript neuroc_covr.R ; rm neuroc_covr.R ; fi
